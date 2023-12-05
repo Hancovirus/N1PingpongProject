@@ -58,12 +58,16 @@ public class leaderboardController implements Initializable {
 		ArrayList<String> playerNameList = new ArrayList<String>();
 		ArrayList<Integer> playerEloList = new ArrayList<Integer>();
 		for (player p : playerList) {
-			String temp = i + ".\t" + p.getName();
+			String temp;
 			if (p.getElo() != previousElo) {
+				temp = i + ".\t" + p.getName();
 				i++;
+			} else {
+				temp = "-\t" + p.getName();
 			}
 			playerNameList.add(temp);
 			playerEloList.add(p.getElo());
+			previousElo = p.getElo();
 		}
 		leaderBoard.getItems().setAll(playerNameList);
 		leaderBoardElo.getItems().setAll(playerEloList);

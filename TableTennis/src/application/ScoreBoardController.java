@@ -136,7 +136,8 @@ public class ScoreBoardController implements Initializable {
 	public void Update() {
 		int temp1 = Integer.parseInt(score1.getText());
 		int temp2 = Integer.parseInt(score2.getText());
-		matchHistory mh = null;
+		matchHistory mh1 = null;
+		matchHistory mh2 = null;
 		if (temp1 == temp2) {
 			return;
 		}
@@ -156,51 +157,53 @@ public class ScoreBoardController implements Initializable {
             }
         }
 		
-		if (ph1 == null || ph2 == null) {
+        for (int i = ph1.getmatchHistoryList().size() - 1; i >= 0; --i) {
+        	if(ph1.getmatchHistoryList().get(i).getopponent().equals(player2.getSelectionModel().getSelectedItem()))
+            {
+                mh1 = ph1.getmatchHistoryList().get(i);
+            }
+        }
+        
+        for (int i = ph2.getmatchHistoryList().size() - 1; i >= 0; --i) {
+        	if(ph2.getmatchHistoryList().get(i).getopponent().equals(player1.getSelectionModel().getSelectedItem()))
+            {
+                mh2 = ph2.getmatchHistoryList().get(i);
+            }
+        }
+		
+		if (ph1 == null || ph2 == null || mh1 == null || mh2 == null) {
 			return;
 		}
 		
+		mh1.setTotalElo(mh1.getTotalElo() + ph2.getElo());
+		mh2.setTotalElo(mh2.getTotalElo() + ph1.getElo());	
+		
 		ph1.setOpponentRatingTotal(ph1.getOpponentRatingTotal() + ph2.getElo());
 		ph2.setOpponentRatingTotal(ph1.getElo() + ph2.getOpponentRatingTotal());
+		
         ph1.setGamePlayed(ph1.getGamePlayed() + 1);
         ph1.setPd(ph1.getPd() + temp1 - temp2);
+        
         ph2.setGamePlayed(ph2.getGamePlayed() + 1);
         ph2.setPd(ph2.getPd() + temp2 - temp1);
-		
-        for (int j = ph1.getmatchHistoryList().size() - 1; j >= 0; --j) {
-        	if(ph1.getmatchHistoryList().get(j).getopponent().equals(player2.getSelectionModel().getSelectedItem()))
-            {
-                mh = ph1.getmatchHistoryList().get(j);
-            }
-        }
         
-        mh.setGamePlayed(mh.getGamePlayed() + 1);
-        mh.setdifferent(mh.getdifferent() + temp1 - temp2);
+        mh1.setGamePlayed(mh1.getGamePlayed() + 1);
+        mh1.setdifferent(mh1.getdifferent() + temp1 - temp2);
+        
+        mh2.setGamePlayed(mh2.getGamePlayed() + 1);
+        mh2.setdifferent(mh2.getdifferent() + temp2 - temp1);
         
         if (temp1 > temp2) {
         	ph1.setWin(ph1.getWin() + 1);
-        	mh.setwin(mh.getwin() + 1);
+        	mh1.setwin(mh1.getwin() + 1);
+        	ph2.setLose(ph2.getLose() + 1);
+        	mh2.setlose(mh2.getlose() + 1);
         } else {
         	ph1.setLose(ph1.getLose() + 1);
-        	mh.setlose(mh.getlose() + 1);
-        }
-        for (int j = ph2.getmatchHistoryList().size() - 1; j >= 0; --j) {
-        	if(ph2.getmatchHistoryList().get(j).getopponent().equals(player1.getSelectionModel().getSelectedItem()))
-            {
-                mh = ph2.getmatchHistoryList().get(j);
-            }
-        }
-        
-        mh.setGamePlayed(mh.getGamePlayed() + 1);
-        mh.setdifferent(mh.getdifferent() + temp2 - temp1);
-        
-        if (temp1 < temp2) {
+        	mh1.setlose(mh1.getlose() + 1);
         	ph2.setWin(ph2.getWin() + 1);
-        	mh.setwin(mh.getwin() + 1);
-        } else {
-        	ph2.setLose(ph2.getLose() + 1);
-        	mh.setlose(mh.getlose() + 1);
-        }
+        	mh2.setwin(mh2.getwin() + 1);
+        } 
 		reset();
 		p.ExportToFile();
 	}

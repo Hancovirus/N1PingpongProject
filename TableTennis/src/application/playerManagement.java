@@ -53,13 +53,14 @@ public class playerManagement {
 	                playerNameList.add(name);
             	} else {
             		inputLine = line;
-	                parts = inputLine.split("\t",5);
+	                parts = inputLine.split("\t",6);
 	              	name = parts[0];
 	                win = Integer.parseInt(parts[1]);
 	                lose = Integer.parseInt(parts[2]);
 	                pd = Integer.parseInt(parts[3]);
 	                gamePlayed = Integer.parseInt(parts[4]);
-	                matchHistory New_matchHistory = new matchHistory(name, gamePlayed, win, lose, pd);
+	                opponentRatingTotal = Integer.parseInt(parts[5]);
+	                matchHistory New_matchHistory = new matchHistory(name, gamePlayed, win, lose, pd, opponentRatingTotal);
 	                playerList.get(i).addMatchHistory(New_matchHistory);
             	}
             }
@@ -79,7 +80,7 @@ public class playerManagement {
                 		+ p.getGamePlayed() + "\t" + p.getOpponentRatingTotal() + "\n");
                 for (matchHistory m : p.getmatchHistoryList()) {
                 	writer.write(m.getopponent() + "\t" + m.getwin() + "\t" + m.getlose() + "\t"
-                	+ m.getdifferent() + "\t" + m.getGamePlayed() + "\n");
+                	+ m.getdifferent() + "\t" + m.getGamePlayed() + "\t" + m.getTotalElo() + "\n");
                 }
             }
             writer.close();
@@ -118,6 +119,7 @@ public class playerManagement {
                     		p.setWin(p.getWin() - opponent.getwin());
                     		p.setLose(p.getLose() - opponent.getlose());
                     		p.setPd(p.getPd() - opponent.getdifferent());
+                    		p.setOpponentRatingTotal(p.getOpponentRatingTotal() - opponent.getTotalElo());
                     		p.getmatchHistoryList().remove(j);
                         }
                     }
