@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.BracketController">
+   <children>
+      <ImageView fitHeight="600.0" fitWidth="900.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@image.png" />
+         </image>
+      </ImageView>
+      <ChoiceBox fx:id="choice1" layoutX="20.0" layoutY="14.0" prefHeight="26.0" prefWidth="107.0" stylesheets="@application.css" />
+      <ChoiceBox fx:id="choice2" layoutX="20.0" layoutY="52.0" prefHeight="26.0" prefWidth="107.0" />
+      <ChoiceBox fx:id="choice3" layoutX="20.0" layoutY="92.0" prefHeight="26.0" prefWidth="107.0" />
+      <ChoiceBox fx:id="choice4" layoutX="20.0" layoutY="130.0" prefHeight="26.0" prefWidth="107.0" />
+      <ChoiceBox fx:id="choice5" layoutX="20.0" layoutY="167.0" prefHeight="26.0" prefWidth="107.0" />
+      <ChoiceBox fx:id="choice6" layoutX="20.0" layoutY="205.0" prefHeight="26.0" prefWidth="107.0" />
+      <ChoiceBox fx:id="choice7" layoutX="20.0" layoutY="245.0" prefHeight="26.0" prefWidth="107.0" />
+      <ChoiceBox fx:id="choice8" layoutX="20.0" layoutY="283.0" prefHeight="26.0" prefWidth="107.0" />
+      <ChoiceBox fx:id="choice9" layoutX="127.0" layoutY="348.0" prefHeight="26.0" prefWidth="107.0" />
+      <ChoiceBox fx:id="choice10" layoutX="127.0" layoutY="401.0" prefHeight="26.0" prefWidth="107.0" />
+      <ChoiceBox fx:id="choice11" layoutX="127.0" layoutY="452.0" prefHeight="26.0" prefWidth="107.0" />
+      <ChoiceBox fx:id="choice12" layoutX="127.0" layoutY="507.0" prefHeight="26.0" prefWidth="107.0" />
+      <ChoiceBox fx:id="choice13" layoutX="143.0" layoutY="260.0" prefHeight="26.0" prefWidth="107.0" />
+      <ChoiceBox fx:id="choice14" layoutX="143.0" layoutY="182.0" prefHeight="26.0" prefWidth="107.0" />
+      <ChoiceBox fx:id="choice15" layoutX="143.0" layoutY="106.0" prefHeight="26.0" prefWidth="107.0" />
+      <ChoiceBox fx:id="choice16" layoutX="143.0" layoutY="28.0" prefHeight="26.0" prefWidth="107.0" />
+      <ChoiceBox fx:id="choice17" layoutX="243.0" layoutY="371.0" prefHeight="26.0" prefWidth="107.0" />
+      <ChoiceBox fx:id="choice18" layoutX="243.0" layoutY="314.0" prefHeight="26.0" prefWidth="107.0" />
+      <ChoiceBox fx:id="choice19" layoutX="243.0" layoutY="535.0" prefHeight="26.0" prefWidth="107.0" />
+      <ChoiceBox fx:id="choice20" layoutX="243.0" layoutY="478.0" prefHeight="26.0" prefWidth="107.0" />
+      <ChoiceBox fx:id="choice21" layoutX="333.0" layoutY="220.0" prefHeight="26.0" prefWidth="107.0" />
+      <ChoiceBox fx:id="choice22" layoutX="333.0" layoutY="59.0" prefHeight="26.0" prefWidth="107.0" />
+      <ChoiceBox fx:id="choice23" layoutX="359.0" layoutY="509.0" prefHeight="31.0" prefWidth="90.0" />
+      <ChoiceBox fx:id="choice24" layoutX="360.0" layoutY="348.0" prefHeight="31.0" prefWidth="89.0" />
+      <ChoiceBox fx:id="choice25" layoutX="461.0" layoutY="422.0" prefHeight="31.0" prefWidth="90.0" />
+      <ChoiceBox fx:id="choice26" layoutX="461.0" layoutY="284.0" prefHeight="31.0" prefWidth="89.0" />
+      <ChoiceBox fx:id="choice27" layoutX="532.0" layoutY="130.0" prefHeight="26.0" prefWidth="107.0" />
+      <ChoiceBox fx:id="choice28" layoutX="561.0" layoutY="363.0" prefHeight="31.0" prefWidth="78.0" />
+      <ChoiceBox fx:id="choice29" layoutX="752.0" layoutY="189.0" prefHeight="26.0" prefWidth="107.0" />
+      <Pane layoutX="646.0" layoutY="270.0" prefHeight="314.0" prefWidth="232.0" style="-fx-background-color: #FFFFFF;" />
+      <ImageView fitHeight="88.0" fitWidth="90.0" layoutX="762.0" layoutY="222.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@icons8-cup-60.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="762.0" layoutY="23.0" mnemonicParsing="false" onAction="#switchSceneUi" prefHeight="62.0" prefWidth="107.0" text="Back" />
+   </children>
+</AnchorPane>

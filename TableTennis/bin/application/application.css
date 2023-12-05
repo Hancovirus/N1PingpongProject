@@ -1,0 +1,16 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+.choice-box {
+	-fx-background-color: transparent;
+}
+
+#name1 {
+	-fx-background-color: transparent;
+}
+
+#name2 {
+	-fx-background-color: transparent;
+}
+
+.text-area *.text {
+    -fx-text-alignment: center;
+}

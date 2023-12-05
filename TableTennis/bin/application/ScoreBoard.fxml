@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ScoreBoardController">
+   <children>
+      <TextArea fx:id="score1" editable="false" layoutX="172.0" layoutY="193.0" prefHeight="214.0" prefWidth="210.0">
+         <font>
+            <Font size="68.0" />
+         </font></TextArea>
+      <TextArea fx:id="score2" editable="false" layoutX="494.0" layoutY="193.0" prefHeight="214.0" prefWidth="210.0">
+         <font>
+            <Font size="68.0" />
+         </font></TextArea>
+      <Button layoutX="396.0" layoutY="124.0" mnemonicParsing="false" onAction="#reset" prefHeight="53.0" prefWidth="95.0" text="Reset" />
+      <Button layoutX="392.0" layoutY="519.0" mnemonicParsing="false" onAction="#Update" prefHeight="53.0" prefWidth="95.0" text="Update" />
+      <Button layoutX="38.0" layoutY="218.0" mnemonicParsing="false" onAction="#Up1" prefHeight="53.0" prefWidth="95.0" text="Up" />
+      <Button layoutX="38.0" layoutY="329.0" mnemonicParsing="false" onAction="#Down1" prefHeight="53.0" prefWidth="95.0" text="Down" />
+      <Button layoutX="761.0" layoutY="218.0" mnemonicParsing="false" onAction="#Up2" prefHeight="53.0" prefWidth="95.0" text="Up" />
+      <Button layoutX="761.0" layoutY="329.0" mnemonicParsing="false" onAction="#Down2" prefHeight="53.0" prefWidth="95.0" text="Down" />
+      <ChoiceBox fx:id="player2" layoutX="773.0" layoutY="151.0" prefHeight="30.0" prefWidth="71.0" />
+      <ChoiceBox fx:id="player1" layoutX="53.0" layoutY="147.0" prefHeight="39.0" prefWidth="80.0" />
+      <TextArea fx:id="name1" editable="false" layoutX="172.0" layoutY="112.0" prefHeight="69.0" prefWidth="219.0">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </TextArea>
+      <TextArea fx:id="name2" editable="false" layoutX="494.0" layoutY="112.0" prefHeight="70.0" prefWidth="219.0">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </TextArea>
+      <Button layoutX="45.0" layoutY="46.0" mnemonicParsing="false" onAction="#switchSceneUi" prefHeight="54.0" prefWidth="95.0" text="Back" />
+      <Label fx:id="Elo1" alignment="CENTER_RIGHT" layoutX="172.0" layoutY="46.0" prefHeight="54.0" prefWidth="71.0" text="Elo" />
+      <Label fx:id="Win1" alignment="CENTER_RIGHT" layoutX="246.0" layoutY="46.0" prefHeight="54.0" prefWidth="71.0" text="If Win" />
+      <Label fx:id="Lose1" alignment="CENTER_RIGHT" layoutX="320.0" layoutY="46.0" prefHeight="54.0" prefWidth="71.0" text="If Lose" />
+      <Label fx:id="Elo2" alignment="CENTER_RIGHT" layoutX="494.0" layoutY="46.0" prefHeight="54.0" prefWidth="71.0" text="Elo" />
+      <Label fx:id="Win2" alignment="CENTER_RIGHT" layoutX="568.0" layoutY="46.0" prefHeight="54.0" prefWidth="71.0" text="If Win" />
+      <Label fx:id="Lose2" alignment="CENTER_RIGHT" layoutX="642.0" layoutY="46.0" prefHeight="54.0" prefWidth="71.0" text="If Lose" />
+      <Button layoutX="396.0" layoutY="46.0" mnemonicParsing="false" onAction="#compare" prefHeight="53.0" prefWidth="95.0" text="Compare" />
+   </children>
+</AnchorPane>
