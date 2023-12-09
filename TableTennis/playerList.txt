@@ -1,4 +1,4 @@
-|Phong	BeastFromTheEast	0	0	0	0	0
-Giang	0	0	0	0	0
-|Giang	Umaru	0	0	0	0	0
-Phong	0	0	0	0	0
+|Phong	BeastFromTheEast	0	0	0	0	400
+Giang	0	0	0	0
+|Giang	Umaru	0	0	0	0	400
+Phong	0	0	0	0

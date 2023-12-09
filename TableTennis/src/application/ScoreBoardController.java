@@ -84,53 +84,15 @@ public class ScoreBoardController implements Initializable {
     	if (ph1 == null || ph2 == null) {
 			return;
 		}
-    	String UpDown = "Up ";
     	Elo1.setText("Elo:" + Integer.toString(ph1.getElo()));
     	Elo2.setText("Elo:" + Integer.toString(ph2.getElo()));
-    	int temp = 400 * (ph1.getWin() + 1 - ph1.getLose());
-    	temp += ph1.getOpponentRatingTotal() + ph2.getElo();
-    	temp /= (ph1.getGamePlayed() + 1);
-    	temp -= ph1.getElo();
-    	if (temp < 0) {
-    		temp = -temp;
-    		UpDown = "Down ";
-    	} else {
-    		UpDown = "Up ";
-    	}
-    	Win1.setText(UpDown + Integer.toString(temp));
-    	temp = 400 * (ph2.getWin() + 1 - ph2.getLose());
-    	temp += ph2.getOpponentRatingTotal() + ph1.getElo();
-    	temp /= (ph2.getGamePlayed() + 1);
-    	temp -= ph2.getElo();
-    	if (temp < 0) {
-    		temp = -temp;
-    		UpDown = "Down ";
-    	} else {
-    		UpDown = "Up ";
-    	}
-    	Win2.setText(UpDown + Integer.toString(temp));
-    	temp = 400 * (ph1.getWin() - 1 - ph1.getLose());
-    	temp += ph1.getOpponentRatingTotal() + ph2.getElo();
-    	temp /= (ph1.getGamePlayed() + 1);
-    	temp -= ph1.getElo();
-    	if (temp < 0) {
-    		temp = -temp;
-    		UpDown = "Down ";
-    	} else {
-    		UpDown = "Up ";
-    	}
-    	Lose1.setText(UpDown + Integer.toString(temp));
-    	temp = 400 * (ph2.getWin() - 1 - ph2.getLose());
-    	temp += ph2.getOpponentRatingTotal() + ph1.getElo();
-    	temp /= (ph2.getGamePlayed() + 1);
-    	temp -= ph2.getElo();
-    	if (temp < 0) {
-    		temp = -temp;
-    		UpDown = "Down ";
-    	} else {
-    		UpDown = "Up ";
-    	}
-    	Lose2.setText(UpDown + Integer.toString(temp));
+    	int elo1 = ph1.getElo();
+    	int elo2 = ph2.getElo();
+    	double ex = 1 / (Math.pow(10, (elo2-elo1)/400) + 1);
+    	Win1.setText("Up " + (int)(25 * (1 - ex)));
+    	Lose1.setText("Down " + (int)(25 - (25 * (ex))));
+    	Win2.setText("Up " + (int)(25 * (ex)));
+    	Lose2.setText("Down " + (int)(25 - (25 * (1 - ex))));
 	}
 	
 	public void Update() {
@@ -174,12 +136,11 @@ public class ScoreBoardController implements Initializable {
 		if (ph1 == null || ph2 == null || mh1 == null || mh2 == null) {
 			return;
 		}
+
+		int elo1 = ph1.getElo();
+		int elo2 = ph2.getElo();
 		
-		mh1.setTotalElo(mh1.getTotalElo() + ph2.getElo());
-		mh2.setTotalElo(mh2.getTotalElo() + ph1.getElo());	
-		
-		ph1.setOpponentRatingTotal(ph1.getOpponentRatingTotal() + ph2.getElo());
-		ph2.setOpponentRatingTotal(ph1.getElo() + ph2.getOpponentRatingTotal());
+		double ex = 1 / (Math.pow(10, (elo2-elo1)/400) + 1);
 		
         ph1.setGamePlayed(ph1.getGamePlayed() + 1);
         ph1.setPd(ph1.getPd() + temp1 - temp2);
@@ -198,11 +159,15 @@ public class ScoreBoardController implements Initializable {
         	mh1.setwin(mh1.getwin() + 1);
         	ph2.setLose(ph2.getLose() + 1);
         	mh2.setlose(mh2.getlose() + 1);
+        	ph1.setElo(ph1.getElo() + (int)(25 * (1 - ex)));
+        	ph2.setElo(ph2.getElo() - (int)(25 - (25 * (1 - ex))));
         } else {
         	ph1.setLose(ph1.getLose() + 1);
         	mh1.setlose(mh1.getlose() + 1);
         	ph2.setWin(ph2.getWin() + 1);
         	mh2.setwin(mh2.getwin() + 1);
+        	ph1.setElo(ph1.getElo() - (int)(25 - (25 * (ex))));
+        	ph2.setElo(ph2.getElo() + (int)(25 * (ex)));
         } 
 		reset();
 		p.ExportToFile();

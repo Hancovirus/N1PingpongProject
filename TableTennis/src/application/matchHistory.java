@@ -6,15 +6,13 @@ public class matchHistory {
 	private int win;
 	private int lose;
 	private int different;
-	private int totalElo;
 	
-	public matchHistory(String opponent, int gamePlayed, int win, int lose, int different, int totalElo) {
+	public matchHistory(String opponent, int gamePlayed, int win, int lose, int different) {
 		this.opponent = opponent;
 		this.gamePlayed = gamePlayed;
 		this.win = win;
 		this.lose = lose;
 		this.different = different;
-		this.totalElo = totalElo;
 	}
 	
 	public matchHistory(String opponent) {
@@ -23,7 +21,6 @@ public class matchHistory {
 		this.win = 0;
 		this.lose = 0;
 		this.different = 0;
-		this.totalElo = 0;
 	}
 	
 	public void setGamePlayed(int gamePlayed) {
@@ -83,13 +80,5 @@ public class matchHistory {
 		ans += "PD: " + different + "\n";
 		ans += "Winrate: " + String.format("%.2f", getWinrate());
 		return ans;
-	}
-
-	public int getTotalElo() {
-		return totalElo;
-	}
-
-	public void setTotalElo(int totalElo) {
-		this.totalElo = totalElo;
 	}
 }

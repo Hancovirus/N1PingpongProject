@@ -10,16 +10,16 @@ public class player {
 	private int win;
 	private int lose;
 	private int pd;
-	private int opponentRatingTotal;
+	private int elo;
 	
-	public player(int gamePlayed ,int win, int lose, int pd, String name, String nickName, int opponentRatingTotal) {
+	public player(int gamePlayed ,int win, int lose, int pd, String name, String nickName, int elo) {
 		this.win = win;
 		this.lose = lose;
 		this.pd = pd;
 		this.gamePlayed = gamePlayed;
 		this.name = name;
 		this.nickName = nickName;
-		this.opponentRatingTotal = opponentRatingTotal;
+		this.setElo(elo);
 		matchHistoryList = new ArrayList<>();
 	}
 	
@@ -30,7 +30,7 @@ public class player {
 		this.gamePlayed = 0;
 		this.name = name;
 		this.nickName = nickName;
-		this.opponentRatingTotal = 0;
+		this.setElo(400);
 		matchHistoryList = new ArrayList<>();
 	}
 	
@@ -118,26 +118,15 @@ public class player {
 		ans += "Lose: " + lose + "\n";
 		ans += "PD: " + pd + "\n";
 		ans += "Winrate: " + String.format("%.2f", getWinrate()) + "\n";
-		ans += "Elo: " + getElo();
+		ans += "Elo: " + elo;
 		return ans;
 	}
 
 	public int getElo() {
-		if (gamePlayed == 0) {
-			return 400;
-		}
-		int ans = 400 * (win - lose);
-		ans += opponentRatingTotal;
-		ans /= gamePlayed;
-		return ans;
+		return elo;
 	}
 
-	public int getOpponentRatingTotal() {
-		return opponentRatingTotal;
+	public void setElo(int elo) {
+		this.elo = elo;
 	}
-
-	public void setOpponentRatingTotal(int opponentRatingTotal) {
-		this.opponentRatingTotal = opponentRatingTotal;
-	}
-
 }
