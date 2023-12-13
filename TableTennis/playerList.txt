@@ -1,4 +1,16 @@
+|Vũ	Top1Server	1	1	0	2	400
+Phong	0	0	0	0
+Giang	0	0	0	0
+Phúc	1	1	0	2
 |Phong	BeastFromTheEast	0	0	0	0	400
 Giang	0	0	0	0
+Phúc	0	0	0	0
+Vũ	0	0	0	0
 |Giang	Umaru	0	0	0	0	400
 Phong	0	0	0	0
+Phúc	0	0	0	0
+Vũ	0	0	0	0
+|Phúc	PhúcDZ	1	1	0	2	400
+Phong	0	0	0	0
+Giang	0	0	0	0
+Vũ	1	1	0	2
