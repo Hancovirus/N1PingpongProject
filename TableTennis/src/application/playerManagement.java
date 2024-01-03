@@ -22,6 +22,9 @@ public class playerManagement {
         	BufferedReader reader = new BufferedReader(new FileReader("playerList.txt"));
             String line;
             line = reader.readLine();
+            if (line == null) {
+            	return;
+            }
             String inputLine = line;
             String[] parts = inputLine.split("\t",7);
           	String name = parts[0];

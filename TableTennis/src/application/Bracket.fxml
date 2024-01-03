@@ -1,54 +1,89 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.BracketController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="940.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.BracketController">
    <children>
-      <ImageView fitHeight="600.0" fitWidth="900.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="600.0" fitWidth="900.0" layoutX="42.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@image.png" />
          </image>
       </ImageView>
-      <ChoiceBox fx:id="choice1" layoutX="20.0" layoutY="14.0" prefHeight="26.0" prefWidth="107.0" stylesheets="@application.css" />
-      <ChoiceBox fx:id="choice2" layoutX="20.0" layoutY="52.0" prefHeight="26.0" prefWidth="107.0" />
-      <ChoiceBox fx:id="choice3" layoutX="20.0" layoutY="92.0" prefHeight="26.0" prefWidth="107.0" />
-      <ChoiceBox fx:id="choice4" layoutX="20.0" layoutY="130.0" prefHeight="26.0" prefWidth="107.0" />
-      <ChoiceBox fx:id="choice5" layoutX="20.0" layoutY="167.0" prefHeight="26.0" prefWidth="107.0" />
-      <ChoiceBox fx:id="choice6" layoutX="20.0" layoutY="205.0" prefHeight="26.0" prefWidth="107.0" />
-      <ChoiceBox fx:id="choice7" layoutX="20.0" layoutY="245.0" prefHeight="26.0" prefWidth="107.0" />
-      <ChoiceBox fx:id="choice8" layoutX="20.0" layoutY="283.0" prefHeight="26.0" prefWidth="107.0" />
-      <ChoiceBox fx:id="choice9" layoutX="127.0" layoutY="348.0" prefHeight="26.0" prefWidth="107.0" />
-      <ChoiceBox fx:id="choice10" layoutX="127.0" layoutY="401.0" prefHeight="26.0" prefWidth="107.0" />
-      <ChoiceBox fx:id="choice11" layoutX="127.0" layoutY="452.0" prefHeight="26.0" prefWidth="107.0" />
-      <ChoiceBox fx:id="choice12" layoutX="127.0" layoutY="507.0" prefHeight="26.0" prefWidth="107.0" />
-      <ChoiceBox fx:id="choice13" layoutX="143.0" layoutY="260.0" prefHeight="26.0" prefWidth="107.0" />
-      <ChoiceBox fx:id="choice14" layoutX="143.0" layoutY="182.0" prefHeight="26.0" prefWidth="107.0" />
-      <ChoiceBox fx:id="choice15" layoutX="143.0" layoutY="106.0" prefHeight="26.0" prefWidth="107.0" />
-      <ChoiceBox fx:id="choice16" layoutX="143.0" layoutY="28.0" prefHeight="26.0" prefWidth="107.0" />
-      <ChoiceBox fx:id="choice17" layoutX="243.0" layoutY="371.0" prefHeight="26.0" prefWidth="107.0" />
-      <ChoiceBox fx:id="choice18" layoutX="243.0" layoutY="314.0" prefHeight="26.0" prefWidth="107.0" />
-      <ChoiceBox fx:id="choice19" layoutX="243.0" layoutY="535.0" prefHeight="26.0" prefWidth="107.0" />
-      <ChoiceBox fx:id="choice20" layoutX="243.0" layoutY="478.0" prefHeight="26.0" prefWidth="107.0" />
-      <ChoiceBox fx:id="choice21" layoutX="333.0" layoutY="220.0" prefHeight="26.0" prefWidth="107.0" />
-      <ChoiceBox fx:id="choice22" layoutX="333.0" layoutY="59.0" prefHeight="26.0" prefWidth="107.0" />
-      <ChoiceBox fx:id="choice23" layoutX="359.0" layoutY="509.0" prefHeight="31.0" prefWidth="90.0" />
-      <ChoiceBox fx:id="choice24" layoutX="360.0" layoutY="348.0" prefHeight="31.0" prefWidth="89.0" />
-      <ChoiceBox fx:id="choice25" layoutX="461.0" layoutY="422.0" prefHeight="31.0" prefWidth="90.0" />
-      <ChoiceBox fx:id="choice26" layoutX="461.0" layoutY="284.0" prefHeight="31.0" prefWidth="89.0" />
-      <ChoiceBox fx:id="choice27" layoutX="532.0" layoutY="130.0" prefHeight="26.0" prefWidth="107.0" />
-      <ChoiceBox fx:id="choice28" layoutX="561.0" layoutY="363.0" prefHeight="31.0" prefWidth="78.0" />
-      <ChoiceBox fx:id="choice29" layoutX="752.0" layoutY="189.0" prefHeight="26.0" prefWidth="107.0" />
-      <Pane layoutX="646.0" layoutY="270.0" prefHeight="314.0" prefWidth="232.0" style="-fx-background-color: #FFFFFF;" />
-      <ImageView fitHeight="88.0" fitWidth="90.0" layoutX="762.0" layoutY="222.0" pickOnBounds="true" preserveRatio="true">
+      <Pane layoutX="688.0" layoutY="270.0" prefHeight="314.0" prefWidth="232.0" style="-fx-background-color: #FFFFFF;">
+         <children>
+            <ListView fx:id="playerList" layoutX="7.0" layoutY="57.0" prefHeight="247.0" prefWidth="107.0" />
+            <ListView fx:id="playingList" layoutX="125.0" layoutY="57.0" prefHeight="247.0" prefWidth="107.0" />
+         </children></Pane>
+      <ImageView fitHeight="88.0" fitWidth="90.0" layoutX="804.0" layoutY="222.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@icons8-cup-60.png" />
          </image>
       </ImageView>
-      <Button layoutX="762.0" layoutY="23.0" mnemonicParsing="false" onAction="#switchSceneUi" prefHeight="62.0" prefWidth="107.0" text="Back" />
+      <Button layoutX="804.0" layoutY="23.0" mnemonicParsing="false" onAction="#switchSceneUi" prefHeight="62.0" prefWidth="107.0" text="Back" />
+      <Label fx:id="player1" layoutX="70.0" layoutY="9.0" prefHeight="27.0" prefWidth="115.0" />
+      <Label fx:id="player2" layoutX="69.0" layoutY="51.0" prefHeight="27.0" prefWidth="107.0" />
+      <Label fx:id="player3" layoutX="70.0" layoutY="87.0" prefHeight="27.0" prefWidth="115.0" />
+      <Label fx:id="player4" layoutX="70.0" layoutY="129.0" prefHeight="27.0" prefWidth="107.0" />
+      <Label fx:id="player5" layoutX="70.0" layoutY="169.0" prefHeight="27.0" prefWidth="115.0" />
+      <Label fx:id="player6" layoutX="70.0" layoutY="208.0" prefHeight="27.0" prefWidth="107.0" />
+      <Label fx:id="player7" layoutX="70.0" layoutY="245.0" prefHeight="27.0" prefWidth="115.0" />
+      <Label fx:id="player8" layoutX="70.0" layoutY="287.0" prefHeight="27.0" prefWidth="107.0" />
+      <Label fx:id="player9" layoutX="177.0" layoutY="353.0" prefHeight="27.0" prefWidth="115.0" />
+      <Label fx:id="player10" layoutX="177.0" layoutY="398.0" prefHeight="27.0" prefWidth="115.0" />
+      <Label fx:id="player11" layoutX="177.0" layoutY="457.0" prefHeight="27.0" prefWidth="115.0" />
+      <Label fx:id="player12" layoutX="177.0" layoutY="502.0" prefHeight="27.0" prefWidth="115.0" />
+      <Label fx:id="win12" layoutX="185.0" layoutY="35.0" prefHeight="27.0" prefWidth="115.0" />
+      <Label fx:id="win34" layoutX="185.0" layoutY="109.0" prefHeight="27.0" prefWidth="107.0" />
+      <Label fx:id="win56" layoutX="189.0" layoutY="182.0" prefHeight="27.0" prefWidth="115.0" />
+      <Label fx:id="win78" layoutX="189.0" layoutY="266.0" prefHeight="27.0" prefWidth="98.0" />
+      <Label fx:id="lose1234" layoutX="287.0" layoutY="323.0" prefHeight="27.0" prefWidth="107.0" />
+      <Label fx:id="win910" layoutX="301.0" layoutY="375.0" prefHeight="27.0" prefWidth="88.0" />
+      <Label fx:id="win1112" layoutX="294.0" layoutY="482.0" prefHeight="27.0" prefWidth="98.0" />
+      <Label fx:id="lose5678" layoutX="290.0" layoutY="538.0" prefHeight="27.0" prefWidth="98.0" />
+      <Label fx:id="semi1" layoutX="376.0" layoutY="64.0" prefHeight="27.0" prefWidth="115.0" />
+      <Label fx:id="semi2" layoutX="376.0" layoutY="221.0" prefHeight="27.0" prefWidth="115.0" />
+      <Label fx:id="lsemi1" layoutX="395.0" layoutY="353.0" prefHeight="27.0" prefWidth="98.0" />
+      <Label fx:id="lsemi2" layoutX="395.0" layoutY="510.0" prefHeight="27.0" prefWidth="115.0" />
+      <Label fx:id="lfinal1" layoutX="491.0" layoutY="296.0" prefHeight="27.0" prefWidth="115.0" />
+      <Label fx:id="lfinal2" layoutX="491.0" layoutY="423.0" prefHeight="27.0" prefWidth="115.0" />
+      <Label fx:id="final1" layoutX="572.0" layoutY="129.0" prefHeight="27.0" prefWidth="115.0" />
+      <Label fx:id="final2" layoutX="602.0" layoutY="362.0" prefHeight="27.0" prefWidth="80.0" />
+      <Label fx:id="champion" layoutX="770.0" layoutY="185.0" prefHeight="27.0" prefWidth="156.0" textAlignment="CENTER" />
+      <Button layoutX="620.0" layoutY="543.0" mnemonicParsing="false" onAction="#shuffle" text="Shuffle" />
+      <Button layoutX="30.0" layoutY="20.0" mnemonicParsing="false" onAction="#toWin12From1" text="&gt;" />
+      <Button layoutX="30.0" layoutY="61.0" mnemonicParsing="false" onAction="#toWin12From2" text="&gt;" />
+      <Button layoutX="30.0" layoutY="101.0" mnemonicParsing="false" onAction="#toWin34From3" text="&gt;" />
+      <Button layoutX="30.0" layoutY="140.0" mnemonicParsing="false" onAction="#toWin34From4" text="&gt;" />
+      <Button layoutX="30.0" layoutY="180.0" mnemonicParsing="false" onAction="#toWin56From5" text="&gt;" />
+      <Button layoutX="30.0" layoutY="219.0" mnemonicParsing="false" onAction="#toWin56From6" text="&gt;" />
+      <Button layoutX="30.0" layoutY="257.0" mnemonicParsing="false" onAction="#toWin78From7" text="&gt;" />
+      <Button layoutX="30.0" layoutY="293.0" mnemonicParsing="false" onAction="#toWin78From8" text="&gt;" />
+      <Button layoutX="140.0" layoutY="363.0" mnemonicParsing="false" onAction="#toWin910From9" text="&gt;" />
+      <Button layoutX="140.0" layoutY="414.0" mnemonicParsing="false" onAction="#toWin910From10" text="&gt;" />
+      <Button layoutX="140.0" layoutY="465.0" mnemonicParsing="false" onAction="#toWin1112From11" text="&gt;" />
+      <Button layoutX="140.0" layoutY="521.0" mnemonicParsing="false" onAction="#toWin1112From12" text="&gt;" />
+      <Button layoutX="304.0" layoutY="33.0" mnemonicParsing="false" onAction="#toSemi1FromWin12" text="&gt;" />
+      <Button layoutX="304.0" layoutY="116.0" mnemonicParsing="false" onAction="#toSemi1FromWin34" text="&gt;" />
+      <Button layoutX="304.0" layoutY="191.0" mnemonicParsing="false" onAction="#toSem21FromWin56" text="&gt;" />
+      <Button layoutX="304.0" layoutY="274.0" mnemonicParsing="false" onAction="#toSemi2FromWin78" text="&gt;" />
+      <Button layoutX="396.0" layoutY="322.0" mnemonicParsing="false" onAction="#toLsemi1FromLose1234" text="&gt;" />
+      <Button layoutX="396.0" layoutY="385.0" mnemonicParsing="false" onAction="#toLsemi1FromWin910" text="&gt;" />
+      <Button layoutX="394.0" layoutY="485.0" mnemonicParsing="false" onAction="#toLsemi2FromWin1112" text="&gt;" />
+      <Button layoutX="394.0" layoutY="548.0" mnemonicParsing="false" onAction="#toLsemi2FromLose5678" text="&gt;" />
+      <Button layoutX="498.0" layoutY="74.0" mnemonicParsing="false" onAction="#toFinal1FromSemi1" text="&gt;" />
+      <Button layoutX="498.0" layoutY="227.0" mnemonicParsing="false" onAction="#toFinal1FromSemi2" text="&gt;" />
+      <Button layoutX="498.0" layoutY="354.0" mnemonicParsing="false" onAction="#toLfinal2FromLsemi1" text="&gt;" />
+      <Button layoutX="498.0" layoutY="511.0" mnemonicParsing="false" onAction="#toLfinal2FromLsemi2" text="&gt;" />
+      <Button layoutX="608.0" layoutY="294.0" mnemonicParsing="false" onAction="#toFinal2FromLfinal1" text="&gt;" />
+      <Button layoutX="608.0" layoutY="427.0" mnemonicParsing="false" onAction="#toFinal2FromLfinal2" text="&gt;" />
+      <Button layoutX="657.0" layoutY="398.0" mnemonicParsing="false" onAction="#toChampionFromFinal2" text="&gt;" />
+      <Button layoutX="697.0" layoutY="130.0" mnemonicParsing="false" onAction="#toChampionFromFinal1" text="&gt;" />
+      <Button layoutX="556.0" layoutY="543.0" mnemonicParsing="false" onAction="#reset" text="Reset" />
    </children>
 </AnchorPane>

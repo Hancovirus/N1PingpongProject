@@ -2,6 +2,7 @@ package application;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 import javafx.beans.value.ChangeListener;
@@ -13,9 +14,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class ScoreBoardController implements Initializable {
@@ -31,6 +37,27 @@ public class ScoreBoardController implements Initializable {
 	private ChoiceBox<String> player2, player1;
 	@FXML
 	private Label Elo1, Elo2, Win1, Win2, Lose1, Lose2; 
+	
+	@FXML
+	public void handleKey(KeyEvent e) {
+		switch (e.getCode()) {
+			case Q:
+				Up1();
+				break;
+			case A:
+				Down1();
+				break;
+			case E:
+				Up2();
+				break;
+			case D:
+				Down2();
+				break;
+			case ENTER:
+				Update();
+				break;
+		}
+	}
 	
 	public void reset() {
 		score1.setText("0");
@@ -88,14 +115,28 @@ public class ScoreBoardController implements Initializable {
     	Elo2.setText("Elo:" + Integer.toString(ph2.getElo()));
     	int elo1 = ph1.getElo();
     	int elo2 = ph2.getElo();
-    	double ex = 1 / (Math.pow(10, (elo2-elo1)/400) + 1);
-    	Win1.setText("Up " + (int)(25 * (1 - ex)));
-    	Lose1.setText("Down " + (int)(25 - (25 * (ex))));
+    	double ex = 1 / (Math.pow(10, (elo2-elo1)/25) + 1);
+    	Win1.setText("Up " + (25 - (int)(25 * (ex))));
+    	Lose1.setText("Down " + (int)(25 * (ex)));
     	Win2.setText("Up " + (int)(25 * (ex)));
-    	Lose2.setText("Down " + (int)(25 - (25 * (1 - ex))));
+    	Lose2.setText("Down " + (25 - (int)(25 * (ex))));
 	}
 	
 	public void Update() {
+		
+		Alert.AlertType type = Alert.AlertType.CONFIRMATION;
+		Alert alert = new Alert(type, "");
+		alert.initModality(Modality.APPLICATION_MODAL);
+		alert.initOwner(stage);
+		
+		alert.getDialogPane().setHeaderText("Update point");
+		alert.getDialogPane().setContentText("You sure want to update?");
+		
+		Optional<ButtonType> result = alert.showAndWait();
+		if (result.get() == ButtonType.CANCEL) {
+			return;
+		}
+		
 		int temp1 = Integer.parseInt(score1.getText());
 		int temp2 = Integer.parseInt(score2.getText());
 		matchHistory mh1 = null;
@@ -140,7 +181,7 @@ public class ScoreBoardController implements Initializable {
 		int elo1 = ph1.getElo();
 		int elo2 = ph2.getElo();
 		
-		double ex = 1 / (Math.pow(10, (elo2-elo1)/400) + 1);
+		double ex = 1 / (Math.pow(10, (elo2-elo1)/25) + 1);
 		
         ph1.setGamePlayed(ph1.getGamePlayed() + 1);
         ph1.setPd(ph1.getPd() + temp1 - temp2);
@@ -159,14 +200,14 @@ public class ScoreBoardController implements Initializable {
         	mh1.setwin(mh1.getwin() + 1);
         	ph2.setLose(ph2.getLose() + 1);
         	mh2.setlose(mh2.getlose() + 1);
-        	ph1.setElo(ph1.getElo() + (int)(25 * (1 - ex)));
-        	ph2.setElo(ph2.getElo() - (int)(25 - (25 * (1 - ex))));
+        	ph1.setElo(ph1.getElo() + (25 - (int)(25 * (ex))));
+        	ph2.setElo(ph2.getElo() - (25 - (int)(25 * (ex))));
         } else {
         	ph1.setLose(ph1.getLose() + 1);
         	mh1.setlose(mh1.getlose() + 1);
         	ph2.setWin(ph2.getWin() + 1);
         	mh2.setwin(mh2.getwin() + 1);
-        	ph1.setElo(ph1.getElo() - (int)(25 - (25 * (ex))));
+        	ph1.setElo(ph1.getElo() - (int)(25 * (ex)));
         	ph2.setElo(ph2.getElo() + (int)(25 * (ex)));
         } 
 		reset();
@@ -187,6 +228,7 @@ public class ScoreBoardController implements Initializable {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		
 		// TODO Auto-generated method stub
 		reset();
 		player1.getItems().addAll(p.getplayerNameList());
