@@ -36,15 +36,8 @@ Arguements
 
 ## Xem trước
 
-![image](https://github.com/Hancovirus/N1PingpongProject/assets/125468313/7d2f8dcb-b17e-4200-a682-6db69f8dc995)
-
 ![image](https://github.com/Hancovirus/N1PingpongProject/assets/125468313/acae43af-5dc0-45e5-b522-c4812314abc7)
 
-![image](https://github.com/Hancovirus/N1PingpongProject/assets/125468313/2c096657-2d28-42ec-9e98-6c970ff99279)
-
-![image](https://github.com/Hancovirus/N1PingpongProject/assets/125468313/b96d5a99-cff5-4d34-abff-93a46c43d6c8)
-
-![image](https://github.com/Hancovirus/N1PingpongProject/assets/125468313/8a6015ca-91e3-4c3a-aa2d-4402665492a6)
 
 
 
