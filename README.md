@@ -1,9 +1,5 @@
 # N1TableTennis
 
-## Thành viên
-
-- [Trần Tuấn Phong (22028081) - K67CA-CLC4](https://github.com/Hancovirus)
-
 ## Giới thiệu
 
 - Dự án cá nhân về một app lưu trữ dữ liệu bóng bàn.
