@@ -17,7 +17,7 @@
          <font>
             <Font size="68.0" />
          </font></TextArea>
-      <Button layoutX="396.0" layoutY="124.0" mnemonicParsing="false" onAction="#reset" prefHeight="53.0" prefWidth="95.0" text="Reset" />
+      <Button layoutX="396.0" layoutY="124.0" mnemonicParsing="false" onAction="#reset" onKeyPressed="#handleKey" prefHeight="53.0" prefWidth="95.0" text="Reset" />
       <Button layoutX="392.0" layoutY="519.0" mnemonicParsing="false" onAction="#Update" onKeyPressed="#handleKey" prefHeight="53.0" prefWidth="95.0" text="Update" />
       <Button layoutX="38.0" layoutY="218.0" mnemonicParsing="false" onAction="#Up1" onKeyPressed="#handleKey" prefHeight="53.0" prefWidth="95.0" text="Up" />
       <Button layoutX="38.0" layoutY="329.0" mnemonicParsing="false" onAction="#Down1" onKeyPressed="#handleKey" prefHeight="53.0" prefWidth="95.0" text="Down" />
@@ -42,6 +42,6 @@
       <Label fx:id="Elo2" alignment="CENTER_RIGHT" layoutX="494.0" layoutY="46.0" prefHeight="54.0" prefWidth="71.0" text="Elo" />
       <Label fx:id="Win2" alignment="CENTER_RIGHT" layoutX="568.0" layoutY="46.0" prefHeight="54.0" prefWidth="71.0" text="If Win" />
       <Label fx:id="Lose2" alignment="CENTER_RIGHT" layoutX="642.0" layoutY="46.0" prefHeight="54.0" prefWidth="71.0" text="If Lose" />
-      <Button layoutX="396.0" layoutY="46.0" mnemonicParsing="false" onAction="#compare" prefHeight="53.0" prefWidth="95.0" text="Compare" />
+      <Button layoutX="396.0" layoutY="46.0" mnemonicParsing="false" onAction="#compare" onKeyPressed="#handleKey" prefHeight="53.0" prefWidth="95.0" text="Compare" />
    </children>
 </AnchorPane>

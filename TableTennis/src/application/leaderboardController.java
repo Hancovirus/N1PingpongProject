@@ -14,7 +14,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class leaderboardController implements Initializable {
@@ -22,15 +25,12 @@ public class leaderboardController implements Initializable {
 	playerManagement p = new playerManagement();
 	
 	@FXML
+	private VBox leaderBoard;
+	
+	@FXML
 	private Stage stage;
 	private Scene scene;
 	private Parent root;
-	
-	@FXML
-	private ListView<String> leaderBoard;
-	
-	@FXML
-	private ListView<Integer> leaderBoardElo;
 	
 	@FXML
 	public void switchSceneUi(ActionEvent e) throws IOException {
@@ -55,21 +55,37 @@ public class leaderboardController implements Initializable {
         });
 		int i = 1;
 		int previousElo = 0;
-		ArrayList<String> playerNameList = new ArrayList<String>();
-		ArrayList<Integer> playerEloList = new ArrayList<Integer>();
+		HBox title = new HBox(); 
+		Label titlenums = new Label(" " + "Nums");
+		titlenums.setMinWidth(70);
+		Label titlelabel = new Label("Name");
+		titlelabel.setMinWidth(200);
+		Label titleelolabel = new Label("Elo");
+		titleelolabel.setMinWidth(30);
+		title.getChildren().addAll(titlenums, titlelabel, titleelolabel); 
+		leaderBoard.getChildren().add(title);
 		for (player p : playerList) {
-			String temp;
+			HBox hbox = new HBox(); 
 			if (p.getElo() != previousElo) {
-				temp = i + ".\t" + p.getName();
+				Label nums = new Label(" " + Integer.toString(i) + ".");
+				nums.setMinWidth(70);
+				Label label = new Label(p.getName());
+				label.setMinWidth(200);
+				Label elolabel = new Label(Integer.toString(p.getElo()));
+				elolabel.setMinWidth(30);
+				hbox.getChildren().addAll(nums,label, elolabel); 
 				i++;
 			} else {
-				temp = "-\t" + p.getName();
+				Label nums = new Label(" " + "-");
+				nums.setMinWidth(70);
+				Label label = new Label(p.getName());
+				label.setMinWidth(200);
+				Label elolabel = new Label(Integer.toString(p.getElo()));
+				elolabel.setMinWidth(30);
+				hbox.getChildren().addAll(nums, label, elolabel); 
 			}
-			playerNameList.add(temp);
-			playerEloList.add(p.getElo());
+			leaderBoard.getChildren().add(hbox);
 			previousElo = p.getElo();
 		}
-		leaderBoard.getItems().setAll(playerNameList);
-		leaderBoardElo.getItems().setAll(playerEloList);
 	}
 }
