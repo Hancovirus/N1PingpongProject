@@ -6,7 +6,7 @@
 
 ## Giới thiệu
 
-Dự án cá nhân về một app lưu trữ dữ liệu bóng bàn.
+- Dự án cá nhân về một app lưu trữ dữ liệu bóng bàn.
 
 ## Tính năng
 
