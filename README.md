@@ -34,10 +34,6 @@ Run as -> Run Configurations
 Arguements
 - VM arguements: --module-path "*Your path to javaFX lib*" --add-modules javafx.controls,javafx.fxml
 
-## Xem trước
-
-![image](https://github.com/Hancovirus/N1PingpongProject/assets/125468313/acae43af-5dc0-45e5-b522-c4812314abc7)
-
 
 
 
